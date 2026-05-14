@@ -159,12 +159,26 @@ window.SIGNAL_I18N = {
 
 window.SIGNAL_I18N.en = {
   ...window.SIGNAL_I18N.ru,
+
   "nav.signal": "What is Signal",
   "nav.sgx": "How SGX works",
   "nav.ecosystem": "Ecosystem",
   "nav.license": "How to get access",
   "nav.access": "Get access",
   "nav.login": "Enter",
+
+  "why.lede": "For a normal person, it is hard to understand what is noise and what is a real ecosystem. Because of that, many people enter too late.",
+  "why.p1": "too many confusing tokens",
+  "why.p2": "hard to understand what is actually developing",
+  "why.p3": "fear of buying the wrong asset",
+  "why.p4": "complex crypto interfaces",
+  "why.p5": "seed phrases and private keys",
+  "why.p6": "complex swap and liquidity pool mechanics",
+  "why.p7": "overloaded charts and terminals",
+  "why.p8": "fear of making mistakes when sending funds",
+  "why.p9": "hard to enter projects at an early stage",
+  "why.p10": "important information often comes too late",
+  "why.summary": "Signal helps ordinary people understand SGX, see the current phase, and access the ecosystem without complicated crypto terminology.",
   "hero.badge": "SGX · EARLY PRICE OF THE CURRENT PHASE",
   "hero.title1": "Get SGX",
   "hero.title2": "while the phase is early.",
