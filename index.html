@@ -5,226 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0A0C10" />
   <title>SIGNAL — ранняя фаза SGX</title>
-  <meta name="description" content="Простая информационная страница о SIGNAL, LOTOS.IO и ранней фазе алгоритмического токена SGX." />
-  <meta property="og:title" content="SIGNAL — ранняя фаза SGX" />
-  <meta property="og:description" content="Понятное объяснение SIGNAL, LOTOS.IO и SGX простыми словами." />
-  <meta property="og:type" content="website" />
   <link rel="icon" type="image/svg+xml" href="assets/signal-full-logo-transparent.svg" />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=clash-grotesk@500,600,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ambient background -->
   <div class="ambient" aria-hidden="true">
     <div class="ambient-orb ambient-orb--a"></div>
     <div class="ambient-orb ambient-orb--b"></div>
     <div class="ambient-grid"></div>
   </div>
 
-  <!-- NAV -->
   <header class="nav" id="nav">
-    <a href="#top" class="nav__brand" aria-label="SIGNAL home">
-      <img src="assets/signal-nav-mark.svg" alt="" class="nav__brand-mark" width="64" height="56" />
-      <img src="assets/signal-wordmark.svg" alt="SIGNAL" class="nav__brand-word" width="104" height="24" />
+    <a href="#top" class="nav__brand">
+      <img src="assets/signal-nav-mark.svg" class="nav__brand-mark" width="64" height="56" />
+      <img src="assets/signal-wordmark.svg" class="nav__brand-word" width="104" height="24" />
     </a>
-
-    <nav class="nav__links" aria-label="Primary">
+    <nav class="nav__links">
       <a href="#signal" data-i18n="nav.signal">Что такое Signal</a>
       <a href="#how" data-i18n="nav.sgx">Как работает SGX</a>
       <a href="#ecosystem" data-i18n="nav.ecosystem">Экосистема</a>
-      <a href="#license" data-i18n="nav.license">Как получить доступ</a>
     </nav>
-
     <div class="nav__actions">
-      <div class="lang" aria-label="Language switcher">
-        <button class="lang__btn is-active" type="button" data-lang-set="ru" aria-pressed="true">RU</button>
-        <button class="lang__btn" type="button" data-lang-set="en" aria-pressed="false">EN</button>
-        <button class="lang__btn" type="button" data-lang-set="es" aria-pressed="false">ES</button>
+      <div class="lang">
+        <button class="lang__btn is-active" type="button" data-lang-set="ru">RU</button>
+        <button class="lang__btn" type="button" data-lang-set="en">EN</button>
       </div>
-      <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--ghost btn--sm" data-i18n="nav.access">Получить доступ</a>
-      <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--primary btn--sm" data-i18n="nav.login">Войти</a>
-      <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+      <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--primary btn--sm">Войти</a>
+      <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- mobile menu -->
   <div class="mobile-menu" id="mobileMenu" hidden>
     <a href="#signal" data-i18n="nav.signal">Что такое Signal</a>
     <a href="#how" data-i18n="nav.sgx">Как работает SGX</a>
-    <a href="#ecosystem" data-i18n="nav.ecosystem">Экосистема</a>
-    <a href="#license" data-i18n="nav.license">Как получить доступ</a>
-    <div class="lang lang--mobile">
-      <button class="lang__btn is-active" type="button" data-lang-set="ru">RU</button>
-      <button class="lang__btn" type="button" data-lang-set="en">EN</button>
-    </div>
     <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank">Получить доступ</a>
-    <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank">Войти</a>
   </div>
 
   <main id="top">
     <!-- 1. HERO -->
     <section class="hero">
       <div class="hero__copy">
-        <span class="badge" data-i18n="hero.badge">
-          <span class="badge__dot"></span> SGX · РАННЯЯ ЦЕНА ТЕКУЩЕЙ ФАЗЫ
-        </span>
+        <span class="badge" data-i18n="hero.badge"><span class="badge__dot"></span> SGX · РАННЯЯ ЦЕНА ТЕКУЩЕЙ ФАЗЫ</span>
         <h1 class="hero__title">
           <span data-i18n="hero.title1">Получить SGX</span>
           <span class="grad" data-i18n="hero.title2">пока этап ранний.</span>
         </h1>
         <p class="hero__sub" data-i18n="hero.sub">
-          SGX — токен ранней фазы экосистемы Signal. Сейчас цена текущего этапа — $<span class="sgx-price">5,05</span>, и этот этап может быть самым важным для тех, кто хочет войти до следующих фаз.
+          SGX — токен ранней фазы экосистемы Signal. Сейчас цена текущего этапа — $<span class="sgx-price">5.05</span>.
         </p>
         <ul class="hero__bullets">
-          <li data-i18n="hero.b1">текущая цена SGX — $<span class="sgx-price">5,05</span></li>
+          <li data-i18n="hero.b1">текущая цена SGX — $<span class="sgx-price">5.05</span></li>
           <li data-i18n="hero.b2">доступ к текущей фазе через лицензию</li>
           <li data-i18n="hero.b3">Signal помогает понять всё простыми словами</li>
           <li data-i18n="hero.b4">экосистема ещё до массового внимания</li>
           <li data-i18n="hero.b5">следующие этапы могут быть менее доступными</li>
         </ul>
         <div class="hero__cta">
-          <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--primary" data-i18n="hero.cta1">Получить ранний доступ к SGX →</a>
-          <a href="#how" class="btn btn--ghost" data-i18n="hero.cta2">Как это работает</a>
+          <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--primary">Получить ранний доступ к SGX →</a>
         </div>
       </div>
     </section>
 
-    <!-- 2. SGX PROOF -->
+    <!-- 2. PROOF -->
     <section class="sgx-proof" id="sgx-proof">
       <div class="sgx-proof__panel">
         <div class="sgx-proof__copy">
-          <span class="eyebrow" data-i18n="proof.eyebrow">SGX · цена уже движется</span>
-          <h2>
-            <span data-i18n="proof.title1">$<span class="sgx-price">5,05</span> за SGX</span>
-            <span class="grad" data-i18n="proof.title2">текущая ранняя фаза.</span>
-          </h2>
-          <p data-i18n="proof.text">SGX уже находится в активной фазе движения. Вход позже может быть уже по другим условиям.</p>
+          <h2 data-i18n="proof.title1">$<span class="sgx-price">5.05</span> за SGX</h2>
+          <p data-i18n="proof.text">Проект находится в активной фазе движения.</p>
           <div class="sgx-proof__stats">
-            <div><span data-i18n="proof.startLabel">текущий этап</span><strong data-i18n="proof.stageValue">ранний</strong></div>
-            <div><span data-i18n="proof.todayLabel">14 мая</span><strong data-i18n="proof.currentPrice">$<span class="sgx-price">5,05</span></strong></div>
-            <div><span data-i18n="proof.growthLabel">следующие этапы</span><strong data-i18n="proof.nextValue">другие условия</strong></div>
+            <div><span data-i18n="proof.todayLabel">Дата</span><strong>$<span class="sgx-price">5.05</span></strong></div>
           </div>
         </div>
         <div class="sgx-proof__chart">
-          <div class="sgx-proof__chart-head">
-            <div><span data-i18n="proof.chartLabel">алгоритмический токен SGX</span><em data-i18n="proof.chartSub">динамика ранней фазы</em></div>
-            <strong data-i18n="proof.currentPrice">$<span class="sgx-price">5,05</span></strong>
-          </div>
-          <svg viewBox="0 0 760 260" preserveAspectRatio="none">
-            <path class="sgx-proof__area" d="M32.0 232.0 L32.0 232.0 L58.8 181.5 L728.0 35.3 L728.0 232.0 Z"/>
-            <polyline class="sgx-proof__line" points="32.0,232.0 139.1,138.7 353.2,86.3 513.8,57.1 728.0,35.3"/>
-          </svg>
-          <div class="sgx-proof__axis">
-            <span>старт фазы</span>
-            <span>активное движение</span>
-            <span>14.05 · $<span class="sgx-price">5,05</span></span>
-          </div>
+           <strong class="grad">$<span class="sgx-price">5.05</span></strong>
+           <svg viewBox="0 0 760 260" preserveAspectRatio="none" style="height: 200px; width: 100%;">
+             <polyline class="sgx-proof__line" points="0,200 150,120 300,100 450,60 760,20" fill="none" stroke="#39EE96" stroke-width="4" />
+           </svg>
         </div>
       </div>
     </section>
 
-    <!-- WHY SIGNAL -->
-    <section class="section section--problem" id="why">
+    <!-- 3. WHY -->
+    <section class="section" id="why">
       <header class="section__head">
-        <h2 class="section__title">Почему люди пропускают ранние возможности.</h2>
+        <h2 class="section__title" data-i18n="why.title1">Почему люди пропускают возможности</h2>
       </header>
       <div class="why-panel">
         <ul class="why-list">
           <li data-i18n="why.p1">слишком много непонятных токенов</li>
           <li data-i18n="why.p2">сложно понять, что реально развивается</li>
           <li data-i18n="why.p3">страх купить не тот актив</li>
+          <li data-i18n="why.p4">сложные крипто-интерфейсы</li>
           <li data-i18n="why.p9">сложно войти в проект на раннем этапе</li>
           <li data-i18n="why.p10">важная информация часто приходит слишком поздно</li>
         </ul>
       </div>
     </section>
-
-    <!-- SIGNAL CARDS -->
-    <section class="section section--signal" id="signal">
-      <header class="section__head">
-        <h2 class="section__title">LOTOS отбирает. Signal упрощает.</h2>
-      </header>
-      <div class="cards cards--6">
-        <article class="card"><h3 data-i18n="signal.c1t">LOTOS</h3><p data-i18n="signal.c1b">Фундамент, который помогает фильтровать рынок.</p></article>
-        <article class="card"><h3 data-i18n="signal.c2t">Signal</h3><p data-i18n="signal.c2b">Приложение, которое объясняет экосистему человеку.</p></article>
-        <article class="card"><h3 data-i18n="signal.c3t">SGX</h3><p data-i18n="signal.c3b">Токен ранней фазы развития экосистемы Signal.</p></article>
-      </div>
-    </section>
-
-    <!-- HOW SGX WORKS -->
-    <section class="section section--how" id="how">
-      <header class="section__head">
-        <h2 class="section__title">Как человек получает доступ к SGX.</h2>
-      </header>
-      <ol class="flow">
-        <li class="flow__node"><span class="flow__num">01</span><h3 data-i18n="how.s1t">Лицензия</h3><p data-i18n="how.s1b">Активация открывает вход.</p></li>
-        <li class="flow__node"><span class="flow__num">02</span><h3 data-i18n="how.s2t">Вход в Signal</h3><p data-i18n="how.s2b">Доступ к информации и интерфейсу.</p></li>
-        <li class="flow__node"><span class="flow__num">03</span><h3 data-i18n="how.s3t">Ранняя цена</h3><p data-i18n="how.s3b">Человек видит динамику $<span class="sgx-price">5,05</span>.</p></li>
-      </ol>
-    </section>
-
-    <!-- ECOSYSTEM -->
-    <section class="section section--sgx" id="ecosystem">
-      <div class="sgx-wrap">
-        <div class="cards cards--eco">
-          <article class="card card--sgx">
-            <h3 data-i18n="sgx.c1t">Ранняя цена</h3>
-            <p data-i18n="sgx.c1b">Текущая цена SGX — $<span class="sgx-price">5,05</span>, и проект в начале пути.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="section section--cta" id="cta">
-      <div class="cta-card">
-        <h2 class="cta-card__title">Ранняя фаза не длится вечно.</h2>
-        <p class="cta-card__sub">Текущая цена SGX — $<span class="sgx-price">5,05</span>.</p>
-        <a href="https://t.me/signal_win_app_bot?startapp=eyJyZWZlcnJlciI6ImVnZXpiNWg3OWVkeHFzYTYifQ==" target="_blank" class="btn btn--primary">Получить ранний доступ к SGX →</a>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
-    <div class="footer__row">
-      <img src="assets/signal-full-logo-transparent.svg" width="72" height="72" alt="SIGNAL" />
-      <p class="footer__status">Информационная страница SIGNAL.</p>
-    </div>
-    <p class="footer__copy">© <span id="year"></span> SGXnetwork</p>
+    <p>© <span id="year"></span> SGXnetwork</p>
   </footer>
 
-  <!-- ВАЖНО: ВОТ СЕКЦИЯ АДМИНКИ, КОТОРАЯ БЫЛА УДАЛЕНА -->
-  <section class="admin-shell" id="adminPanel" hidden aria-label="SIGNAL admin panel">
+  <!-- ADMIN -->
+  <section class="admin-shell" id="adminPanel" hidden>
     <div class="admin-shell__bg"></div>
     <div class="admin-shell__wrap">
       <header class="admin-shell__top">
-        <div>
-          <span class="eyebrow">SIGNAL ADMIN</span>
-          <h1>Редактирование сайта</h1>
-        </div>
+        <h1>Редактирование сайта</h1>
         <a class="btn btn--ghost" href="#lang=ru" id="adminExit">← На сайт</a>
       </header>
       <div class="admin-login" id="adminLogin">
         <div class="admin-card">
-          <h2>Вход в админку</h2>
-          <input id="adminPassword" type="password" placeholder="Введите пароль" />
-          <button class="btn btn--primary" type="button" id="adminLoginBtn">Войти</button>
-          <div class="admin__status" id="adminLoginStatus"></div>
+          <input id="adminPassword" type="password" placeholder="Пароль" />
+          <button class="btn btn--primary" id="adminLoginBtn">Войти</button>
+          <div id="adminLoginStatus"></div>
         </div>
       </div>
       <div class="admin-editor" id="adminEditor" hidden>
         <div class="admin-editor__bar">
-          <div class="lang">
-            <button class="lang__btn is-active" type="button" data-admin-lang="ru">RU</button>
-            <button class="lang__btn" type="button" data-admin-lang="en">EN</button>
-          </div>
-          <button class="btn btn--primary" type="button" id="saveAdmin">Сохранить на сайте</button>
+            <button class="lang__btn" data-admin-lang="ru">RU</button>
+            <button class="lang__btn" data-admin-lang="en">EN</button>
+            <button class="btn btn--primary" id="saveAdmin">Сохранить</button>
         </div>
         <form id="adminForm" class="admin__grid"></form>
-        <div class="admin__status" id="adminStatus"></div>
+        <div id="adminStatus"></div>
       </div>
     </div>
   </section>
