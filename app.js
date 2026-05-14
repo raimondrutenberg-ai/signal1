@@ -10,10 +10,33 @@
 
   window.SIGNAL_API_BASE = apiBase;
 
+  /**
+   * Функция для обновления всех цен на странице.
+   * Ищет элементы с классом .sgx-price
+   */
+  function updateGlobalPrices(price) {
+    if (!price) return;
+    var elements = document.querySelectorAll('.sgx-price');
+    elements.forEach(function (el) {
+      el.textContent = price;
+    });
+    console.log("Price updated to:", price);
+  }
+
   function mergeContent(content) {
     content = content || {};
-    Object.keys(content).forEach(function (lang) {
-      i18n[lang] = Object.assign({}, i18n[lang] || {}, content[lang] || {});
+    
+    // 1. Проверяем наличие глобальной цены в ответе от сервера
+    if (content.global_price) {
+      updateGlobalPrices(content.global_price);
+    }
+    
+    // 2. Мержим переводы для языков
+    Object.keys(content).forEach(function (langKey) {
+      // Пропускаем системные поля, которые не являются языками
+      if (langKey !== 'global_price') {
+        i18n[langKey] = Object.assign({}, i18n[langKey] || {}, content[langKey] || {});
+      }
     });
   }
 
@@ -27,12 +50,12 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- language ----------
-     Current mockup is Russian-only. Other languages can be added later. */
+  /* ---------- language ---------- */
   function getLangFromUrl() {
     var m = (location.hash || '').match(/lang=(en|ru|es)/);
     return m ? m[1] : null;
   }
+  
   function setUrlLang(lang) {
     var rest = (location.hash || '').replace(/(^|&|#)lang=(en|ru|es)/, '').replace(/^#/, '');
     var hash = 'lang=' + lang + (rest ? '&' + rest.replace(/^&/, '') : '');
@@ -49,7 +72,7 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (dict[key] != null) {
-        // preserve badge dot for badge spans
+        // Сохраняем точку в бейджах, если она там есть
         if (el.classList.contains('badge')) {
           var dot = el.querySelector('.badge__dot');
           el.textContent = '';
@@ -67,7 +90,6 @@
       b.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
 
-    // update page title for accessibility
     var titles = {
       ru: 'SIGNAL — ранний доступ к SGX',
       en: 'SIGNAL — early access to SGX',
@@ -77,6 +99,8 @@
   }
 
   window.SIGNAL_APPLY_LANG = applyLang;
+  
+  // Эту функцию вызывает admin.js после сохранения
   window.SIGNAL_MERGE_CONTENT = function (content) {
     mergeContent(content);
     applyLang(currentLang);
@@ -100,7 +124,8 @@
         applyLang(getLangFromUrl() || currentLang);
         notifyContentReady();
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error("Ошибка при загрузке конфига:", err);
         notifyContentReady();
       });
   }
@@ -130,7 +155,7 @@
     });
   }
 
-  /* ---------- smooth anchor scroll with sticky-nav offset ---------- */
+  /* ---------- smooth anchor scroll ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
