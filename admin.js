@@ -10,12 +10,13 @@
   var password = '';
   var savedContent = {};
 
+  // Список текстовых полей (оставляем как было)
   var fields = [
     ['hero.badge', 'Верхний бейдж', false],
     ['hero.title1', 'Hero: строка 1', false],
     ['hero.title2', 'Hero: зелёная строка', false],
     ['hero.sub', 'Hero: главный текст', true],
-    ['hero.b1', 'Hero: пункт 1 / цена', false],
+    ['hero.b1', 'Hero: пункт 1', false],
     ['hero.b2', 'Hero: пункт 2', false],
     ['hero.b3', 'Hero: пункт 3', false],
     ['hero.b4', 'Hero: пункт 4', false],
@@ -24,11 +25,11 @@
     ['hero.cta1', 'Hero: главная кнопка', false],
     ['hero.cta2', 'Hero: вторая кнопка', false],
     ['proof.eyebrow', 'График: бейдж', false],
-    ['proof.title1', 'График: заголовок с ценой', false],
+    ['proof.title1', 'График: заголовок', false],
     ['proof.title2', 'График: зелёная строка', false],
     ['proof.text', 'График: описание', true],
     ['proof.todayLabel', 'График: дата', false],
-    ['proof.currentPrice', 'График: текущая цена', false],
+    ['proof.currentPrice', 'График: текущая цена (текст)', false],
     ['proof.stageValue', 'График: этап', false],
     ['proof.nextValue', 'График: следующие условия', false],
     ['proof.chartLabel', 'График: подпись', false],
@@ -48,7 +49,7 @@
     ['sgx.title1', 'Экосистема: заголовок 1', false],
     ['sgx.title2', 'Экосистема: заголовок 2', false],
     ['sgx.lede', 'Экосистема: описание', true],
-    ['sgx.c1b', 'Карточка SGX: цена', true],
+    ['sgx.c1b', 'Карточка SGX: текст про цену', true],
     ['sgx.c5b', 'Карточка SGX: следующие этапы', true],
     ['license.title1', 'Лицензия: заголовок 1', false],
     ['license.title2', 'Лицензия: заголовок 2', false],
@@ -95,7 +96,22 @@
 
   function render() {
     var dict = currentDict();
-    form.innerHTML = fields.map(function (f) {
+    
+    // 1. Сначала добавляем поле для ГЛОБАЛЬНОЙ ЦЕНЫ
+    var globalPriceValue = escapeHtml(savedContent.global_price || '5.05');
+    var html = `
+      <div class="admin__field admin__field--wide" style="background: rgba(57,238,150,0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(57,238,150,0.3); margin-bottom: 30px;">
+        <label style="color: var(--accent); font-size: 14px;">💰 ГЛОБАЛЬНАЯ ЦЕНА SGX (обновится везде на сайте)</label>
+        <input type="text" id="global_price_input" value="${globalPriceValue}" style="font-size: 24px; font-weight: bold; color: var(--accent);" />
+        <p style="font-size: 12px; opacity: 0.6; margin-top: 8px;">Введите число, например: 5.05 или 5,05</p>
+      </div>
+      <div class="admin__field admin__field--wide">
+        <h3 style="margin: 20px 0 10px;">Текстовые блоки (${lang.toUpperCase()})</h3>
+      </div>
+    `;
+
+    // 2. Затем добавляем все остальные поля
+    html += fields.map(function (f) {
       var key = f[0], label = f[1], multiline = f[2];
       var value = escapeHtml(dict[key] || '');
       var input = multiline
@@ -103,6 +119,8 @@
         : '<input data-key="' + key + '" value="' + value + '" />';
       return '<div class="admin__field' + (multiline ? ' admin__field--wide' : '') + '"><label>' + label + '</label>' + input + '</div>';
     }).join('');
+
+    form.innerHTML = html;
   }
 
   function setStatus(text, isError) {
@@ -120,7 +138,14 @@
       });
   }
 
-  function collectActiveLang() {
+  function collectData() {
+    // Собираем глобальную цену
+    var gpInput = document.getElementById('global_price_input');
+    if (gpInput) {
+      savedContent.global_price = gpInput.value;
+    }
+
+    // Собираем переводы для текущего языка
     savedContent[lang] = savedContent[lang] || {};
     form.querySelectorAll('[data-key]').forEach(function (el) {
       savedContent[lang][el.getAttribute('data-key')] = el.value;
@@ -128,7 +153,7 @@
   }
 
   function saveConfig() {
-    collectActiveLang();
+    collectData();
     setStatus('Сохраняю изменения...', false);
     fetch(apiBase + '/api/admin/config', {
       method: 'POST',
@@ -143,8 +168,9 @@
       })
       .then(function (data) {
         savedContent = data.content || savedContent;
+        // Уведомляем основное приложение, чтобы оно обновило цены и тексты
         if (window.SIGNAL_MERGE_CONTENT) window.SIGNAL_MERGE_CONTENT(savedContent);
-        setStatus('Сохранено. Посетители теперь увидят обновлённую версию.', false);
+        setStatus('Сохранено успешно!', false);
         render();
       })
       .catch(function (err) {
@@ -152,15 +178,15 @@
       });
   }
 
+  // Остальные слушатели событий...
   document.querySelectorAll('[data-admin-lang]').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      collectActiveLang();
+      collectData();
       lang = btn.getAttribute('data-admin-lang');
       document.querySelectorAll('[data-admin-lang]').forEach(function (b) {
         b.classList.toggle('is-active', b === btn);
       });
       render();
-      setStatus('', false);
     });
   });
 
@@ -181,30 +207,17 @@
         }
         login.hidden = true;
         editor.hidden = false;
-        loginStatus.textContent = '';
-        loadConfig().then(function () {
-          setStatus('Админка открыта. Можно менять тексты и значения.', false);
-        });
+        loadConfig();
       })
       .catch(function () {
-        password = '';
-        loginStatus.textContent = 'Сервер админки пока недоступен.';
+        loginStatus.textContent = 'Ошибка сервера.';
       });
   });
 
-  passInput.addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') document.getElementById('adminLoginBtn').click();
-  });
-
   document.getElementById('saveAdmin').addEventListener('click', saveConfig);
-  document.getElementById('reloadAdmin').addEventListener('click', function () {
-    loadConfig().then(function () { setStatus('Данные обновлены с сервера.', false); });
-  });
+  document.getElementById('reloadAdmin').addEventListener('click', loadConfig);
 
-  window.addEventListener('hashchange', function () {
-    showAdmin(isAdminHash());
-  });
-
+  window.addEventListener('hashchange', function () { showAdmin(isAdminHash()); });
   window.addEventListener('signal:content-ready', function (event) {
     base = event.detail.i18n || base;
     if (!editor.hidden) render();
