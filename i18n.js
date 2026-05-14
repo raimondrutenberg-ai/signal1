@@ -168,6 +168,14 @@ window.SIGNAL_I18N.en = {
   "nav.login": "Enter",
 "hero.float1": "AI assistant inside",
 "hero.float2": "The license unlocks ecosystem access",
+"license.s1t": "Choose a license",
+"license.s1b": "The first step to access Signal and the current SGX phase.",
+
+"license.s2t": "Activate access",
+"license.s2b": "Access opens to the platform features and application interface.",
+
+"license.s3t": "Get SGX earlier",
+"license.s3b": "The main goal is to enter the current phase before the next development stages.",
 
 "mock.userLabel": "User",
 "mock.phase": "Early phase",
@@ -205,6 +213,23 @@ window.SIGNAL_I18N.en = {
   "why.p8": "fear of making mistakes when sending funds",
   "why.p9": "hard to enter projects at an early stage",
   "why.p10": "important information often comes too late",
+"how.s1t": "Access through license",
+"how.s1b": "Activation opens access to the SIGNAL ecosystem.",
+
+"how.s2t": "Enter Signal",
+"how.s2b": "The user gets access to ecosystem information, education and interface.",
+
+"how.s3t": "Understanding SGX",
+"how.s3b": "Signal explains the current SGX phase in simple words.",
+
+"how.s4t": "Early price",
+"how.s4b": "A person sees the current dynamics and understands that future phases may become less accessible.",
+
+"how.s5t": "Participation in the phase",
+"how.s5b": "After access, the user can follow the ecosystem development and the current SGX phase.",
+
+"how.s6t": "Decision before the market",
+"how.s6b": "The main idea is to understand SGX before wider attention arrives.",
   "why.summary": "Signal helps ordinary people understand SGX, see the current phase, and access the ecosystem without complicated crypto terminology.",
   "hero.badge": "SGX · EARLY PRICE OF THE CURRENT PHASE",
   "hero.title1": "Get SGX",
@@ -281,7 +306,31 @@ window.SIGNAL_I18N.es = {
   "hero.sub": "SGX es el token de fase temprana del ecosistema Signal. El precio actual de la fase es $5.05, y esta etapa puede ser importante para quienes quieren entrar antes de las siguientes fases.",
 "hero.float1": "Asistente AI integrado",
 "hero.float2": "La licencia abre acceso al ecosistema",
+"how.s1t": "Acceso mediante licencia",
+"how.s1b": "La activación abre acceso al ecosistema SIGNAL.",
 
+"how.s2t": "Entrar en Signal",
+"how.s2b": "El usuario obtiene acceso a información, formación e interfaz del ecosistema.",
+
+"how.s3t": "Comprender SGX",
+"how.s3b": "Signal explica la fase actual de SGX con palabras simples.",
+
+"how.s4t": "Precio temprano",
+"how.s4b": "La persona ve la dinámica actual y entiende que las próximas fases pueden ser menos accesibles.",
+
+"how.s5t": "Participación en la fase",
+"how.s5b": "Después del acceso, el usuario puede seguir el desarrollo del ecosistema y la fase actual de SGX.",
+
+"how.s6t": "Decisión antes del mercado",
+"how.s6b": "La idea principal es entender SGX antes de que llegue una audiencia más amplia.",
+"license.s1t": "Elegir una licencia",
+"license.s1b": "El primer paso para acceder a Signal y a la fase actual de SGX.",
+
+"license.s2t": "Activar acceso",
+"license.s2b": "Se abre acceso a las funciones de la plataforma y a la interfaz de la aplicación.",
+
+"license.s3t": "Obtener SGX antes",
+"license.s3b": "La idea principal es entrar en la fase actual antes de las siguientes etapas de desarrollo.",
 "mock.userLabel": "Usuario",
 "mock.phase": "Fase temprana",
 "mock.asset": "Activo del ecosistema Signal",
