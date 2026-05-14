@@ -166,7 +166,34 @@ window.SIGNAL_I18N.en = {
   "nav.license": "How to get access",
   "nav.access": "Get access",
   "nav.login": "Enter",
+"hero.float1": "AI assistant inside",
+"hero.float2": "The license unlocks ecosystem access",
 
+"mock.userLabel": "User",
+"mock.phase": "Early phase",
+"mock.asset": "Signal ecosystem asset",
+"mock.chartStart": "early phase",
+"mock.chartEnd": "community growth",
+"mock.open": "Open",
+"mock.access": "Get access",
+
+"signal.c1t": "LOTOS",
+"signal.c1b": "The foundation that helps filter the market and separate noise from clearer opportunities.",
+
+"signal.c2t": "Signal",
+"signal.c2b": "A simple application that explains the ecosystem to ordinary people without complex terminology.",
+
+"signal.c3t": "SGX",
+"signal.c3b": "An early-phase token connected to the launch and development of the Signal ecosystem.",
+
+"signal.c4t": "License",
+"signal.c4b": "A way to activate access to Signal and the current SGX phase.",
+
+"signal.c5t": "AI Assistant",
+"signal.c5b": "Helps explain what is happening in simple language.",
+
+"signal.c6t": "Early Phase",
+"signal.c6b": "The idea of the current phase is to enter before the project receives wider attention.",
   "why.lede": "For a normal person, it is hard to understand what is noise and what is a real ecosystem. Because of that, many people enter too late.",
   "why.p1": "too many confusing tokens",
   "why.p2": "hard to understand what is actually developing",
@@ -252,7 +279,17 @@ window.SIGNAL_I18N.es = {
   "hero.title1": "Obtener SGX",
   "hero.title2": "mientras la fase es temprana.",
   "hero.sub": "SGX es el token de fase temprana del ecosistema Signal. El precio actual de la fase es $5.05, y esta etapa puede ser importante para quienes quieren entrar antes de las siguientes fases.",
-  "hero.b1": "precio actual de SGX — $5.05",
+"hero.float1": "Asistente AI integrado",
+"hero.float2": "La licencia abre acceso al ecosistema",
+
+"mock.userLabel": "Usuario",
+"mock.phase": "Fase temprana",
+"mock.asset": "Activo del ecosistema Signal",
+"mock.chartStart": "fase temprana",
+"mock.chartEnd": "crecimiento de la comunidad",
+"mock.open": "Abrir",
+"mock.access": "Obtener acceso",  
+"hero.b1": "precio actual de SGX — $5.05",
   "hero.b2": "acceso a la fase actual mediante licencia",
   "hero.b3": "Signal lo explica todo con palabras simples",
   "hero.b4": "el ecosistema aún está antes de la atención masiva",
@@ -286,6 +323,23 @@ window.SIGNAL_I18N.es = {
   "signal.title2": "Signal simplifica. SGX abre acceso temprano.",
   "signal.lede": "LOTOS.IO es la base tecnológica del ecosistema. Ayuda a filtrar y analizar tokens. Signal lo hace más fácil para una persona normal: muestra una entrada clara al ecosistema y a la fase actual de SGX.",
   "signal.lede2": "La idea central es simple: no obligar a una persona a entender terminales complejas, sino mostrar dónde está SGX ahora y cómo obtener acceso a la fase temprana.",
+"signal.c1t": "LOTOS",
+"signal.c1b": "La base que ayuda a filtrar el mercado y separar el ruido de oportunidades más claras.",
+
+"signal.c2t": "Signal",
+"signal.c2b": "Una aplicación simple que explica el ecosistema a las personas sin términos complejos.",
+
+"signal.c3t": "SGX",
+"signal.c3b": "Un token de fase temprana relacionado con el lanzamiento y desarrollo del ecosistema Signal.",
+
+"signal.c4t": "Licencia",
+"signal.c4b": "Una forma de activar el acceso a Signal y a la fase actual de SGX.",
+
+"signal.c5t": "Asistente AI",
+"signal.c5b": "Ayuda a entender lo que está ocurriendo con palabras simples.",
+
+"signal.c6t": "Fase temprana",
+"signal.c6b": "La idea de la fase actual es entrar antes de que el proyecto reciba más atención.",
   "how.eyebrow": "Cómo funciona SGX",
   "how.title1": "Cómo una persona",
   "how.title2": "obtiene acceso a SGX.",
