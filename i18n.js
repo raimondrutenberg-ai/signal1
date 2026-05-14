@@ -184,6 +184,24 @@ window.SIGNAL_I18N.en = {
 "mock.chartEnd": "community growth",
 "mock.open": "Open",
 "mock.access": "Get access",
+"sgx.c2t": "Access through license",
+"sgx.c2b": "To access the current SGX phase, the user activates a Signal license.",
+
+"sgx.c3t": "Clear entry",
+"sgx.c3b": "Signal explains SGX in a simpler way so users do not get lost in complex crypto terminology.",
+
+"sgx.c4t": "Early phase",
+"sgx.c4b": "The project is currently in the active stage of building its community and infrastructure.",
+
+"sgx.c5t": "Next phases",
+"sgx.c5b": "If the ecosystem continues to grow, later entry may happen under different conditions.",
+
+"sgx.c6t": "Platform activity",
+"sgx.c6b": "The ecosystem development strengthens internal user interaction.",
+
+"sgx.c7tag": "Important",
+"sgx.c7t": "No promises of returns",
+"sgx.c7b": "The platform explains the ecosystem mechanics and the current development phase.",
 
 "signal.c1t": "LOTOS",
 "signal.c1b": "The foundation that helps filter the market and separate noise from clearer opportunities.",
@@ -389,6 +407,24 @@ window.SIGNAL_I18N.es = {
 
 "signal.c6t": "Fase temprana",
 "signal.c6b": "La idea de la fase actual es entrar antes de que el proyecto reciba más atención.",
+"sgx.c2t": "Acceso mediante licencia",
+"sgx.c2b": "Para acceder a la fase actual de SGX, el usuario activa una licencia Signal.",
+
+"sgx.c3t": "Entrada clara",
+"sgx.c3b": "Signal explica SGX de forma más simple para que la persona no se pierda en términos cripto complejos.",
+
+"sgx.c4t": "Fase temprana",
+"sgx.c4b": "El proyecto se encuentra en una etapa activa de formación de comunidad e infraestructura.",
+
+"sgx.c5t": "Próximas fases",
+"sgx.c5b": "Si el ecosistema continúa creciendo, entrar más tarde puede ser bajo otras condiciones.",
+
+"sgx.c6t": "Actividad dentro de la plataforma",
+"sgx.c6b": "El desarrollo del ecosistema fortalece la interacción interna de los usuarios.",
+
+"sgx.c7tag": "Importante",
+"sgx.c7t": "Sin promesas de rentabilidad",
+"sgx.c7b": "La plataforma explica la mecánica del ecosistema y su fase actual de desarrollo.",
   "how.eyebrow": "Cómo funciona SGX",
   "how.title1": "Cómo una persona",
   "how.title2": "obtiene acceso a SGX.",
