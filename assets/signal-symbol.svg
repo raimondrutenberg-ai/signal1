@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="220 150 640 570" fill="none" aria-label="SIGNAL mark">
+  <ellipse opacity="0.12" cx="547.206" cy="477.972" rx="319.779" ry="124.229" transform="rotate(-23.8979 547.206 477.972)" fill="url(#ambient)"/>
+  <path d="M709.238 519.846C744.911 495.778 823.478 437.197 852.36 395.42C840.434 424.432 788.536 483.099 709.238 519.846Z" fill="url(#ringA)"/>
+  <path d="M659.544 287.956C659.544 287.956 707.833 268.465 761.829 260.383C820.777 252.621 850.206 270.599 857.443 291.004C864.68 311.409 858.3 349.374 817.231 396.065C776.163 442.756 698.065 496.223 644.13 524.136C644.13 524.136 732.704 460.526 759.137 435.123C785.57 409.72 840.798 354.837 826.092 307.629C826.092 307.629 817.644 272.874 754.629 275.42C692.064 276.913 672.623 285.376 659.544 287.956Z" fill="url(#ringB)"/>
+  <path d="M412.407 582.598C412.407 582.598 363.56 603.585 311.704 611.813C259.848 620.04 229.327 600.218 222.394 579.588C215.46 558.958 222.769 521.914 262.226 474.664C301.682 427.415 377.222 372.856 427.325 343.655C427.325 343.655 342.241 408.043 316.852 433.758C291.464 459.473 238.403 515.01 252.499 562.761C252.499 562.761 261.027 596.189 321.102 594.648C381.176 593.107 399.847 585.188 412.407 582.598Z" fill="url(#ringC)"/>
+  <path d="532.321 457.297L448.947 692.651L722.515 366.157L547.693 412.982L630.771 177.698L357.189 504.205L532.321 457.297Z" fill="url(#bolt)"/>
+  <defs>
+    <linearGradient id="ambient" x1="815.611" y1="401.895" x2="265.824" y2="548.586" gradientUnits="userSpaceOnUse"><stop stop-color="#39EE96"/><stop offset="1" stop-color="#1A4D3D"/></linearGradient>
+    <linearGradient id="ringA" x1="819.159" y1="252.298" x2="751.914" y2="519.853" gradientUnits="userSpaceOnUse"><stop stop-color="#39EE96"/><stop offset="1" stop-color="#173E35"/></linearGradient>
+    <linearGradient id="ringB" x1="789.337" y1="167.231" x2="714.258" y2="526.118" gradientUnits="userSpaceOnUse"><stop stop-color="#39EE96"/><stop offset="1" stop-color="#173E35"/></linearGradient>
+    <linearGradient id="ringC" x1="429.071" y1="164.316" x2="255.094" y2="610.665" gradientUnits="userSpaceOnUse"><stop stop-color="#39EE96"/><stop offset="1" stop-color="#173E35"/></linearGradient>
+    <linearGradient id="bolt" x1="625.747" y1="195.853" x2="457.855" y2="689.87" gradientUnits="userSpaceOnUse"><stop offset="0.24643" stop-color="#39EE96"/><stop offset="1" stop-color="#173E35"/></linearGradient>
+  </defs>
+</svg>

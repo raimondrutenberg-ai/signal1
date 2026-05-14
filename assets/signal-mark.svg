@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" fill="none" aria-label="Signal mark">
+  <!-- Orbital ring -->
+  <ellipse cx="280" cy="305" rx="220" ry="78" transform="rotate(-22 280 305)" stroke="url(#ring)" stroke-width="14" fill="none" opacity="0.85"/>
+  <!-- Lightning bolt -->
+  <path d="M335 60 L235 305 L308 295 L225 510 L325 270 L252 280 Z" fill="url(#bolt)"/>
+  <defs>
+    <linearGradient id="bolt" x1="220" y1="60" x2="330" y2="510" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5BFFB0"/>
+      <stop offset="0.55" stop-color="#39EE96"/>
+      <stop offset="1" stop-color="#1A7A52"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="60" y1="240" x2="500" y2="370" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1A7A52"/>
+      <stop offset="0.5" stop-color="#39EE96"/>
+      <stop offset="1" stop-color="#1A4D3D"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "python api_server.py"
+  },
+  "dependencies": {}
+}
