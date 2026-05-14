@@ -9,7 +9,7 @@ import os
 import sqlite3
 from pathlib import Path
 
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = ROOT / "data.db"
@@ -91,6 +91,21 @@ def save_config():
 
     write_config(content)
     return jsonify({"ok": True, "content": content})
+
+
+@app.route("/")
+def index():
+    return send_from_directory(ROOT, "index.html")
+
+
+@app.route("/admin")
+def admin():
+    return send_from_directory(ROOT, "admin.html")
+
+
+@app.route("/<path:path>")
+def static_files(path):
+    return send_from_directory(ROOT, path)
 
 
 if __name__ == "__main__":
