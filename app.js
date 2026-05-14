@@ -7,33 +7,31 @@
   var i18n = window.SIGNAL_I18N || {};
   var apiBase = '';
   var currentLang = 'ru';
+  var lastPrice = '5.05'; // Запасное значение цены
 
   window.SIGNAL_API_BASE = apiBase;
 
-  /**
-   * Функция для обновления всех цен на странице.
-   * Ищет элементы с классом .sgx-price
-   */
+  // 1. Функция обновления всех цен на странице
   function updateGlobalPrices(price) {
     if (!price) return;
+    lastPrice = price; // Сохраняем актуальную цену в памяти
     var elements = document.querySelectorAll('.sgx-price');
     elements.forEach(function (el) {
       el.textContent = price;
     });
-    console.log("Price updated to:", price);
+    console.log("Price updated in DOM:", price);
   }
 
+  // 2. Функция слияния контента с сервера
   function mergeContent(content) {
     content = content || {};
     
-    // 1. Проверяем наличие глобальной цены в ответе от сервера
+    // Подхватываем глобальную цену
     if (content.global_price) {
       updateGlobalPrices(content.global_price);
     }
     
-    // 2. Мержим переводы для языков
     Object.keys(content).forEach(function (langKey) {
-      // Пропускаем системные поля, которые не являются языками
       if (langKey !== 'global_price') {
         i18n[langKey] = Object.assign({}, i18n[langKey] || {}, content[langKey] || {});
       }
@@ -50,7 +48,7 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- language ---------- */
+  /* ---------- language logic ---------- */
   function getLangFromUrl() {
     var m = (location.hash || '').match(/lang=(en|ru|es)/);
     return m ? m[1] : null;
@@ -72,22 +70,24 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (dict[key] != null) {
-        // Сохраняем точку в бейджах, если она там есть
         if (el.classList.contains('badge')) {
           var dot = el.querySelector('.badge__dot');
           el.textContent = '';
           if (dot) el.appendChild(dot);
           el.appendChild(document.createTextNode(' ' + dict[key]));
         } else {
-          el.textContent = dict[key];
+          // ИСПОЛЬЗУЕМ innerHTML, чтобы спаны с ценой внутри перевода работали
+          el.innerHTML = dict[key];
         }
       }
     });
 
+    // ПОСЛЕ перевода текстов ВСТАВЛЯЕМ цену в новые появившиеся спаны
+    updateGlobalPrices(lastPrice);
+
     document.querySelectorAll('.lang__btn').forEach(function (b) {
       var active = b.getAttribute('data-lang-set') === lang;
       b.classList.toggle('is-active', active);
-      b.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
 
     var titles = {
@@ -100,7 +100,6 @@
 
   window.SIGNAL_APPLY_LANG = applyLang;
   
-  // Эту функцию вызывает admin.js после сохранения
   window.SIGNAL_MERGE_CONTENT = function (content) {
     mergeContent(content);
     applyLang(currentLang);
@@ -125,7 +124,7 @@
         notifyContentReady();
       })
       .catch(function (err) {
-        console.error("Ошибка при загрузке конфига:", err);
+        console.error("Boot error:", err);
         notifyContentReady();
       });
   }
@@ -143,7 +142,7 @@
       requestAnimationFrame(function () { menu.classList.add('is-open'); });
     } else {
       menu.classList.remove('is-open');
-      menu.hidden = true;
+      setTimeout(function(){ menu.hidden = true; }, 200);
     }
   }
   if (burger && menu) {
@@ -155,7 +154,7 @@
     });
   }
 
-  /* ---------- smooth anchor scroll ---------- */
+  /* ---------- smooth scroll ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
