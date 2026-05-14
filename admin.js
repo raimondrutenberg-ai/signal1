@@ -4,7 +4,7 @@
   var panel = document.getElementById('adminPanel');
   if (!panel) return;
 
-  var apiBase = window.SIGNAL_API_BASE || ('port/8000'.startsWith('__') ? 'http://localhost:8000' : 'port/8000');
+  var apiBase = '';
   var base = window.SIGNAL_I18N || {};
   var lang = 'ru';
   var password = '';
