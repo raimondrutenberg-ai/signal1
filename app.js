@@ -1,10 +1,11 @@
 /* SIGNAL — page controller */
+
 (function () {
   'use strict';
 
   var html = document.documentElement;
   var i18n = window.SIGNAL_I18N || {};
-  var apiBase = 'port/8000'.startsWith('__') ? 'http://localhost:8000' : 'port/8000';
+  var apiBase = '';
   var currentLang = 'ru';
 
   window.SIGNAL_API_BASE = apiBase;
